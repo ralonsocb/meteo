@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from '../../services/usuario/usuario.service';
-import { Estacion } from 'src/app/models/estacion.model';
-import { EstacionService } from '../../services/estacion/estacion.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,17 +10,9 @@ import { EstacionService } from '../../services/estacion/estacion.service';
 export class ProfileComponent implements OnInit {
 
   usuario: Usuario;
-  estaciones: Estacion[] = [];
 
-  constructor( public _usuarioService: UsuarioService, public _estacionService: EstacionService) {
+  constructor( public _usuarioService: UsuarioService) {
     this.usuario = this._usuarioService.usuario;
-    for ( let id of this._usuarioService.usuario.estaciones){
-      this._estacionService.getEstacion(String(id)).
-      subscribe( (resp:Estacion) => {
-        console.log(resp.estacion);
-        this.estaciones.push(resp.estacion);
-    });
-    }
     
    }
 

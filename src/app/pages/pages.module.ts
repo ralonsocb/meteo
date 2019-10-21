@@ -1,28 +1,39 @@
 import { NgModule } from '@angular/core';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { Graficas1Component } from './graficas1/graficas1.component';
-import { ProgressComponent } from './progress/progress.component';
 //import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { PAGES_ROUTES } from './pages.routes';
 
 import { FormsModule} from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
+import { ChartModule } from 'angular-highcharts';
+import { GoogleChartsModule } from 'angular-google-charts';
+//import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+
+import { HighchartsChartModule } from 'highcharts-angular';
+
+
 // import { } from 'highcharts';
 // import { HighchartsChartComponent } from 'highcharts-angular';
-import { MapsComponent } from './maps/maps.component';
-import { AgmCoreModule } from '@agm/core';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
+import { Ng5SliderModule } from 'ng5-slider';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
-import { PromesasComponent } from './promesas/promesas.component';
-import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
-import { EstacionesComponent } from './estaciones/estaciones.component';
-import { EstacionComponent } from './estaciones/estacion.component';
 import { CommonModule } from '@angular/common';
+import { RegHorarioComponent } from './reg-horario/reg-horario.component';
+
+
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
+import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
+import { FacturacionComponent } from './facturacion/facturacion.component';
+import { FacturaClienteComponent } from './facturacion/factura-cliente.component';
+
+
+
 
 //Temporal
 
@@ -32,40 +43,43 @@ import { CommonModule } from '@angular/common';
 @NgModule({
     declarations: [
         DashboardComponent,
-        Graficas1Component,
-        ProgressComponent,
         //PagesComponent,
         // HighchartsChartComponent,
-        MapsComponent,
-        IncrementadorComponent,
         AccountSettingsComponent,
-        PromesasComponent,
-        RxjsComponent,
         ProfileComponent,
         UsuariosComponent,
-        EstacionesComponent,
-        EstacionComponent
+        RegHorarioComponent,
+        FacturacionComponent,
+        FacturaClienteComponent,
     ],
     exports: [
         DashboardComponent,
-        Graficas1Component,
-        ProgressComponent,
+        RegHorarioComponent
         //PagesComponent,
-        MapsComponent,
 
     ],
     imports: [
-        AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyAS6OA2KbEX2AwlJf2ACkPSmEtp3hSkZJ0'
-          }),
+        
           //BrowserAnimationsModule,
+        GoogleChartsModule.forRoot(),
+      // Ng2GoogleChartsModule,
         ChartsModule,
+        ChartModule,
+        HighchartsChartModule,
         SharedModule,
+        Ng5SliderModule,
         PAGES_ROUTES,
         FormsModule,
-        CommonModule
+        CommonModule,
+        CalendarModule.forRoot({
+            provide: DateAdapter,
+            useFactory: adapterFactory
+          }),
 
-    ]
+          ScheduleModule, RecurrenceEditorModule
+
+    ],
+    providers: [DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService ],
 })
 
 export class PagesModule {}

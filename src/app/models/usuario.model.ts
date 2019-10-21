@@ -1,4 +1,7 @@
-import { Estacion } from './estacion.model';
+import { RegistroDiario } from './registroDiario.model';
+import { RegistroFacturacion} from './registroFacturacion.model';
+import { Cliente } from './cliente.model';
+
 
 export class Usuario {
   [x: string]: any;
@@ -9,7 +12,9 @@ export class Usuario {
         public password: string,
         public role?: string,
         public id?: string,
-        public estaciones?: Estacion[],
+        public registrosHorarios?: RegistroDiario[],
+        public facturacion?: RegistroFacturacion[],
+        public clientes?: Cliente[],
     ) {
 
     }

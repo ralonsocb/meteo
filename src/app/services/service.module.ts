@@ -6,10 +6,10 @@ import { SidebarService } from './shared/sidebar.service';
 import { SharedService } from './shared/shared.service';
 import { UsuarioService } from './usuario/usuario.service';
 import { HttpClientModule } from '@angular/common/http';
-import { EstacionService } from './estacion/estacion.service';
 
 import { LoginGuardGuard } from './guards/login-guard.guard';
 import { AdminGuard } from './guards/admin.guard';
+import { ClienteService } from './cliente/cliente.service';
 
 
 
@@ -24,7 +24,7 @@ import { AdminGuard } from './guards/admin.guard';
     SidebarService,
     SharedService,
     UsuarioService,
-    EstacionService,
+    ClienteService,
     LoginGuardGuard,
     AdminGuard
  

@@ -22,30 +22,24 @@
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-folder-lock-open"></i><span class="hide-menu">Administracion</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a routerLinkActive="active" routerLink="/usuarios">Usuarios </a></li>
-                        <li><a routerLinkActive="active" routerLink="/estaciones">Estaciones</a></li>
                     </ul>
                 </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Estaciones</span></a>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-book-open-page-variant"></i><span class="hide-menu">Registros</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li *ngFor="let estacion of estaciones">
-                            <a routerLinkActive="active" routerLink="/graficas1">{{estacion.nombre}} </a>
-                        </li>
+                        <a routerLinkActive="active" routerLink="/registro-horario">Registro horas trabajadas </a>
+                        <a routerLinkActive="active" routerLink="/facturacion">Registro horas facturables </a>
+
 
                     </ul>
                 </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false" [routerLink]="['/map']" routerLinkActive="router-link-active"><i class="mdi mdi-map"></i><span class="hide-menu">
-                    Mapa</span>
-                    </a>
 
 
-
-
-                    <!-- <li *ngFor="let menu of _sidebar.menu">
+                <!-- <li *ngFor="let menu of _sidebar.menu">
 
                     <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><i [class]="menu.icono"></i><span class="hide-menu">{{ menu.titulo }}
                              <li *ngIf="menu.titulo=='Mapa'"><a routerLinkActive="active" [routerLink]="[menu.url]" routerLinkActive="active"></a></li> -->
-                    <!-- <span class="label label-rouded label-themecolor pull-right">{{menu.length}}</span> -->
-                    <!-- </span>
+                <!-- <span class="label label-rouded label-themecolor pull-right">{{menu.length}}</span> -->
+                <!-- </span>
                 </a>
                 <ul aria-expanded="false" class="collapse">
                     <li *ngFor="let submenu of menu.submenu"><a routerLinkActive="active" [routerLink]="[submenu.url]" routerLinkActive="active"> {{submenu.titulo}} </a></li>
@@ -53,7 +47,7 @@
                 </li> -->
 
 
-                    <!-- <li> <a [routerLink]="['/map']" class="has-arrow waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-map"></i>Mapa </a></li> -->
+                <!-- <li> <a [routerLink]="['/map']" class="has-arrow waves-effect waves-dark" aria-expanded="false"><i class="mdi mdi-map"></i>Mapa </a></li> -->
 
             </ul>
         </nav>

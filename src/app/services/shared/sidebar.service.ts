@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { UsuarioService } from '../usuario/usuario.service';
-import { EstacionService } from '../estacion/estacion.service';
 
 @Injectable({
   providedIn: 'root'
@@ -27,14 +26,14 @@ export class SidebarService {
       icono: 'mdi mdi-folder-lock-open',
       submenu: [
           { titulo: 'Usuarios', url: '/usuarios' },
-         { titulo: 'Estaciones', url: '/estaciones' }
+ 
       ]
   },
 
 ];
 
 
-  constructor(public _usuarioService: UsuarioService, public _estacionService: EstacionService)
+  constructor(public _usuarioService: UsuarioService)
    {
      
    }

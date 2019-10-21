@@ -22,6 +22,8 @@ import { PAGES_ROUTES } from './pages/pages.routes';
 import { ServiceModule } from './services/service.module';
 import { PagesComponent } from './pages/pages.component';
 import { SharedModule } from './shared/shared.module';
+import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
+import { CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModule, DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
 
 
 
@@ -48,8 +50,9 @@ import { SharedModule } from './shared/shared.module';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAS6OA2KbEX2AwlJf2ACkPSmEtp3hSkZJ0'
     }),
+   ScheduleModule, RecurrenceEditorModule, CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModule, DateTimePickerModule,
   ],
-  providers: [ ],
+  providers: [DayService, WeekService, WorkWeekService, MonthService, MonthAgendaService ],
   bootstrap: [AppComponent]
 })
 

@@ -1,0 +1,105 @@
+<div class="col-12">
+    <div class="text-right">
+        <button type="button" class="btn waves-effect waves-light btn-rounded btn-themecolor" data-toggle="modal" data-target=".bd-example-modal-lg">
+                                                        <i class="fa fa-plus"></i> 
+                                                        Añadir registro
+                                                      </button>
+        <br>
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="card">
+                        <div class="card-body">
+                            <form ngNativeValidate #f='ngForm' (ngSubmit)=addRegistro(f)>
+                                <div class="form-body">
+                                    <h3 class="card-title">Registro de facturación</h3>
+                                    <hr>
+                                    <div class="row p-t-20">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Día</label>
+                                                <input [ngModel]="date" name="date" type="date" class="form-control" placeholder="dd/mm/yyyy">
+                                            </div>
+                                        </div>
+
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Proyecto</label>
+                                                <select [ngModel]="proyecto" name="proyecto" class="form-control custom-select" data-placeholder="Selecciona un proyecto" tabindex="1">
+                                                            <option value="Category 1">Proyecto 1</option>
+                                                            <option value="Category 2">Proyecto 2</option>
+                                                            <option value="Category 3">Proyecto 3</option>
+                                                            <option value="Category 4">Proyecto 4</option>
+                                                        </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Horas</label>
+                                                <input [ngModel]="horas" name="horas" type="number" id="firstName" class="form-control" placeholder="Horas trabajadas">
+                                                <small class="form-control-feedback"> </small> </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Horas extra</label>
+                                                <input [ngModel]="horasExtra" name="horasExtra" type="number" id="firstName" class="form-control" placeholder="Horas extra trabajadas">
+                                                <small class="form-control-feedback"> </small> </div>
+                                        </div>
+
+                                        <div class="col-md-12 ">
+                                            <div class="form-group">
+                                                <label>Observaciones</label>
+                                                <input [ngModel]="observaciones" name="observaciones" type="text" class="form-control" placeholder="Escribe aquí tus observaciones">
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row-->
+
+                                    <!--/row-->
+
+                                    <!--/row-->
+
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Guardar</button>
+                                    <!-- <button type="button" class="btn btn-inverse">Cancelar</button> -->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="card card-body">
+
+            <table class=" table table-hover">
+                <thead>
+                    <th>Día</th>
+                    <th>Proyecto</th>
+                    <th>Horas</th>
+                    <th>Horas extra</th>
+                    <th>Observaciones</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let factura of facturaciones">
+                        <td>{{ factura.fecha }}</td>
+                        <td>Proyecto1</td>
+                        <td>{{ factura.horasNormales }} </td>
+                        <td>{{ factura.horasExtra }} </td>
+                        <td>{{ factura.observaciones }} </td>
+
+                        <!-- <td>
+                            <button (click)="addUsuario(usuario)" class="btn btn-outline-danger">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                        </td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
